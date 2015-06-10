@@ -1,7 +1,7 @@
 ﻿@{
-    ViewBag.Title = "Login";
+    Layout = null;
 }
-
+@model QLKS_WEB.Models.LoginModels
 <!DOCTYPE html>
 <html >
   <head>
@@ -22,7 +22,7 @@
 	@*	<form class="form">*@
             @using (Html.BeginForm("CheckLogin","Login",FormMethod.Post))
             {
-                @Html.TextBoxFor(m => m.Username)
+                @Html.TextBoxFor(m=> m.Username)
                 @Html.TextBoxFor(m => m.Password)
 			    @*<input type="text" placeholder="Username">
 			    <input type="password" placeholder="Password">*@

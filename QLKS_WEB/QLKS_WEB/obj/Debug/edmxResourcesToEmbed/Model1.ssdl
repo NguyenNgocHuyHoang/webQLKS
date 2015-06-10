@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLKS_DAModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="QLKS_DAModelStoreContainer">
+    <EntitySet Name="DM_DichVu" EntityType="QLKS_DAModel.Store.DM_DichVu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DM_HoaDon" EntityType="QLKS_DAModel.Store.DM_HoaDon" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DM_KhachHang" EntityType="QLKS_DAModel.Store.DM_KhachHang" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DM_LoaiPhong" EntityType="QLKS_DAModel.Store.DM_LoaiPhong" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DM_PhanLoaiKH" EntityType="QLKS_DAModel.Store.DM_PhanLoaiKH" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DM_Phong" EntityType="QLKS_DAModel.Store.DM_Phong" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DM_TaiKhoan" EntityType="QLKS_DAModel.Store.DM_TaiKhoan" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DM_Tang" EntityType="QLKS_DAModel.Store.DM_Tang" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="QLKS_DAModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TT_DoiPhong" EntityType="QLKS_DAModel.Store.TT_DoiPhong" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TT_SDDichVu" EntityType="QLKS_DAModel.Store.TT_SDDichVu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TT_TaiKhoan" EntityType="QLKS_DAModel.Store.TT_TaiKhoan" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TT_ThuePhong" EntityType="QLKS_DAModel.Store.TT_ThuePhong" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_DM_HoaDon_TT_ThuePhong" Association="QLKS_DAModel.Store.FK_DM_HoaDon_TT_ThuePhong">
+      <End Role="TT_ThuePhong" EntitySet="TT_ThuePhong" />
+      <End Role="DM_HoaDon" EntitySet="DM_HoaDon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DM_KhachHang_DM_PhanLoaiKH" Association="QLKS_DAModel.Store.FK_DM_KhachHang_DM_PhanLoaiKH">
+      <End Role="DM_PhanLoaiKH" EntitySet="DM_PhanLoaiKH" />
+      <End Role="DM_KhachHang" EntitySet="DM_KhachHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DM_Phong_DM_LoaiPhong" Association="QLKS_DAModel.Store.FK_DM_Phong_DM_LoaiPhong">
+      <End Role="DM_LoaiPhong" EntitySet="DM_LoaiPhong" />
+      <End Role="DM_Phong" EntitySet="DM_Phong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DM_Phong_DM_Tang" Association="QLKS_DAModel.Store.FK_DM_Phong_DM_Tang">
+      <End Role="DM_Tang" EntitySet="DM_Tang" />
+      <End Role="DM_Phong" EntitySet="DM_Phong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TT_DoiPhong_TT_ThuePhong" Association="QLKS_DAModel.Store.FK_TT_DoiPhong_TT_ThuePhong">
+      <End Role="TT_ThuePhong" EntitySet="TT_ThuePhong" />
+      <End Role="TT_DoiPhong" EntitySet="TT_DoiPhong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TT_SDDichVu_DM_DichVu" Association="QLKS_DAModel.Store.FK_TT_SDDichVu_DM_DichVu">
+      <End Role="DM_DichVu" EntitySet="DM_DichVu" />
+      <End Role="TT_SDDichVu" EntitySet="TT_SDDichVu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TT_SDDichVu_TT_ThuePhong" Association="QLKS_DAModel.Store.FK_TT_SDDichVu_TT_ThuePhong">
+      <End Role="TT_ThuePhong" EntitySet="TT_ThuePhong" />
+      <End Role="TT_SDDichVu" EntitySet="TT_SDDichVu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TT_TaiKhoan_DM_TaiKhoan" Association="QLKS_DAModel.Store.FK_TT_TaiKhoan_DM_TaiKhoan">
+      <End Role="DM_TaiKhoan" EntitySet="DM_TaiKhoan" />
+      <End Role="TT_TaiKhoan" EntitySet="TT_TaiKhoan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TT_ThuePhong_DM_KhachHang" Association="QLKS_DAModel.Store.FK_TT_ThuePhong_DM_KhachHang">
+      <End Role="DM_KhachHang" EntitySet="DM_KhachHang" />
+      <End Role="TT_ThuePhong" EntitySet="TT_ThuePhong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TT_ThuePhong_DM_Phong" Association="QLKS_DAModel.Store.FK_TT_ThuePhong_DM_Phong">
+      <End Role="DM_Phong" EntitySet="DM_Phong" />
+      <End Role="TT_ThuePhong" EntitySet="TT_ThuePhong" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DM_DichVu">
+    <Key>
+      <PropertyRef Name="MaDV" />
+    </Key>
+    <Property Name="MaDV" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="TenDV" Type="nvarchar" MaxLength="50" />
+    <Property Name="DonGiaVN" Type="money" />
+    <Property Name="DonGiaNN" Type="money" />
+  </EntityType>
+  <EntityType Name="DM_HoaDon">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="MaThue" Type="char" MaxLength="10" />
+    <Property Name="SoTien" Type="money" />
+    <Property Name="NgayTT" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="DM_KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="HoTenKH" Type="nvarchar" MaxLength="150" />
+    <Property Name="SDT" Type="char" MaxLength="15" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="150" />
+    <Property Name="CMND" Type="char" MaxLength="15" />
+    <Property Name="MaPhanLoai" Type="char" MaxLength="10" />
+    <Property Name="NgaySinh" Type="smalldatetime" />
+    <Property Name="QuocTich" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DM_LoaiPhong">
+    <Key>
+      <PropertyRef Name="MaLoaiP" />
+    </Key>
+    <Property Name="MaLoaiP" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="TenLoaiP" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DM_PhanLoaiKH">
+    <Key>
+      <PropertyRef Name="MaPhanLoai" />
+    </Key>
+    <Property Name="MaPhanLoai" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="TenPhanLoai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DM_Phong">
+    <Key>
+      <PropertyRef Name="MaP" />
+    </Key>
+    <Property Name="MaP" Type="int" Nullable="false" />
+    <Property Name="TenP" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaLoaiP" Type="char" MaxLength="10" />
+    <Property Name="GiaVN" Type="money" />
+    <Property Name="GiaNN" Type="money" />
+    <Property Name="MaTang" Type="int" />
+  </EntityType>
+  <EntityType Name="DM_TaiKhoan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="char" Nullable="false" MaxLength="20" />
+    <Property Name="PW" Type="char" MaxLength="20" />
+    <Property Name="Quyen" Type="int" />
+  </EntityType>
+  <EntityType Name="DM_Tang">
+    <Key>
+      <PropertyRef Name="MaTang" />
+    </Key>
+    <Property Name="MaTang" Type="int" Nullable="false" />
+    <Property Name="TenTang" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TT_DoiPhong">
+    <Key>
+      <PropertyRef Name="MaDoiP" />
+    </Key>
+    <Property Name="MaDoiP" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="MaThue" Type="char" MaxLength="10" />
+    <Property Name="MaPCu" Type="char" MaxLength="10" />
+    <Property Name="MaPMoi" Type="char" MaxLength="10" />
+    <Property Name="NgayDenPCu" Type="smalldatetime" />
+    <Property Name="NgayDoiP" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="TT_SDDichVu">
+    <Key>
+      <PropertyRef Name="MaSDDV" />
+    </Key>
+    <Property Name="MaSDDV" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="MaThue" Type="char" MaxLength="10" />
+    <Property Name="MaDV" Type="char" MaxLength="10" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="ThanhTienVN" Type="money" />
+    <Property Name="ThanhTienNN" Type="money" />
+  </EntityType>
+  <EntityType Name="TT_TaiKhoan">
+    <Key>
+      <PropertyRef Name="MaNV" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="MaNV" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="ID" Type="char" Nullable="false" MaxLength="20" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgaySinh" Type="smalldatetime" />
+    <Property Name="DienThoai" Type="char" MaxLength="20" />
+    <Property Name="Email" Type="char" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TT_ThuePhong">
+    <Key>
+      <PropertyRef Name="MaThue" />
+    </Key>
+    <Property Name="MaThue" Type="char" Nullable="false" MaxLength="10" />
+    <Property Name="MaKH" Type="char" MaxLength="10" />
+    <Property Name="MaP" Type="int" />
+    <Property Name="NgayDat" Type="smalldatetime" />
+    <Property Name="NgayDen" Type="smalldatetime" />
+    <Property Name="NgayTraDuKien" Type="smalldatetime" />
+    <Property Name="NgayTraThucTe" Type="smalldatetime" />
+    <Property Name="TienCoc" Type="money" />
+  </EntityType>
+  <Association Name="FK_DM_HoaDon_TT_ThuePhong">
+    <End Role="TT_ThuePhong" Type="QLKS_DAModel.Store.TT_ThuePhong" Multiplicity="0..1" />
+    <End Role="DM_HoaDon" Type="QLKS_DAModel.Store.DM_HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TT_ThuePhong">
+        <PropertyRef Name="MaThue" />
+      </Principal>
+      <Dependent Role="DM_HoaDon">
+        <PropertyRef Name="MaThue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DM_KhachHang_DM_PhanLoaiKH">
+    <End Role="DM_PhanLoaiKH" Type="QLKS_DAModel.Store.DM_PhanLoaiKH" Multiplicity="0..1" />
+    <End Role="DM_KhachHang" Type="QLKS_DAModel.Store.DM_KhachHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_PhanLoaiKH">
+        <PropertyRef Name="MaPhanLoai" />
+      </Principal>
+      <Dependent Role="DM_KhachHang">
+        <PropertyRef Name="MaPhanLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DM_Phong_DM_LoaiPhong">
+    <End Role="DM_LoaiPhong" Type="QLKS_DAModel.Store.DM_LoaiPhong" Multiplicity="0..1" />
+    <End Role="DM_Phong" Type="QLKS_DAModel.Store.DM_Phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_LoaiPhong">
+        <PropertyRef Name="MaLoaiP" />
+      </Principal>
+      <Dependent Role="DM_Phong">
+        <PropertyRef Name="MaLoaiP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DM_Phong_DM_Tang">
+    <End Role="DM_Tang" Type="QLKS_DAModel.Store.DM_Tang" Multiplicity="0..1" />
+    <End Role="DM_Phong" Type="QLKS_DAModel.Store.DM_Phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_Tang">
+        <PropertyRef Name="MaTang" />
+      </Principal>
+      <Dependent Role="DM_Phong">
+        <PropertyRef Name="MaTang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TT_DoiPhong_TT_ThuePhong">
+    <End Role="TT_ThuePhong" Type="QLKS_DAModel.Store.TT_ThuePhong" Multiplicity="0..1" />
+    <End Role="TT_DoiPhong" Type="QLKS_DAModel.Store.TT_DoiPhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TT_ThuePhong">
+        <PropertyRef Name="MaThue" />
+      </Principal>
+      <Dependent Role="TT_DoiPhong">
+        <PropertyRef Name="MaThue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TT_SDDichVu_DM_DichVu">
+    <End Role="DM_DichVu" Type="QLKS_DAModel.Store.DM_DichVu" Multiplicity="0..1" />
+    <End Role="TT_SDDichVu" Type="QLKS_DAModel.Store.TT_SDDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_DichVu">
+        <PropertyRef Name="MaDV" />
+      </Principal>
+      <Dependent Role="TT_SDDichVu">
+        <PropertyRef Name="MaDV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TT_SDDichVu_TT_ThuePhong">
+    <End Role="TT_ThuePhong" Type="QLKS_DAModel.Store.TT_ThuePhong" Multiplicity="0..1" />
+    <End Role="TT_SDDichVu" Type="QLKS_DAModel.Store.TT_SDDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TT_ThuePhong">
+        <PropertyRef Name="MaThue" />
+      </Principal>
+      <Dependent Role="TT_SDDichVu">
+        <PropertyRef Name="MaThue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TT_TaiKhoan_DM_TaiKhoan">
+    <End Role="DM_TaiKhoan" Type="QLKS_DAModel.Store.DM_TaiKhoan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TT_TaiKhoan" Type="QLKS_DAModel.Store.TT_TaiKhoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_TaiKhoan">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TT_TaiKhoan">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TT_ThuePhong_DM_KhachHang">
+    <End Role="DM_KhachHang" Type="QLKS_DAModel.Store.DM_KhachHang" Multiplicity="0..1" />
+    <End Role="TT_ThuePhong" Type="QLKS_DAModel.Store.TT_ThuePhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="TT_ThuePhong">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TT_ThuePhong_DM_Phong">
+    <End Role="DM_Phong" Type="QLKS_DAModel.Store.DM_Phong" Multiplicity="0..1" />
+    <End Role="TT_ThuePhong" Type="QLKS_DAModel.Store.TT_ThuePhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_Phong">
+        <PropertyRef Name="MaP" />
+      </Principal>
+      <Dependent Role="TT_ThuePhong">
+        <PropertyRef Name="MaP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

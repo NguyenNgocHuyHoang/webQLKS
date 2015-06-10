@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace QLKS_WEB.Controllers
+namespace QLKS_WEB.Models
 {
     public class LoginModels
     {

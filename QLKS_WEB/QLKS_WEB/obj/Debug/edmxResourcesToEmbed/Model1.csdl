@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLKS_DAModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QLKS_DAEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="DM_DichVu" EntityType="QLKS_DAModel.DM_DichVu" />
+    <EntitySet Name="DM_HoaDon" EntityType="QLKS_DAModel.DM_HoaDon" />
+    <EntitySet Name="DM_KhachHang" EntityType="QLKS_DAModel.DM_KhachHang" />
+    <EntitySet Name="DM_LoaiPhong" EntityType="QLKS_DAModel.DM_LoaiPhong" />
+    <EntitySet Name="DM_PhanLoaiKH" EntityType="QLKS_DAModel.DM_PhanLoaiKH" />
+    <EntitySet Name="DM_Phong" EntityType="QLKS_DAModel.DM_Phong" />
+    <EntitySet Name="DM_TaiKhoan" EntityType="QLKS_DAModel.DM_TaiKhoan" />
+    <EntitySet Name="DM_Tang" EntityType="QLKS_DAModel.DM_Tang" />
+    <EntitySet Name="sysdiagrams" EntityType="QLKS_DAModel.sysdiagram" />
+    <EntitySet Name="TT_DoiPhong" EntityType="QLKS_DAModel.TT_DoiPhong" />
+    <EntitySet Name="TT_SDDichVu" EntityType="QLKS_DAModel.TT_SDDichVu" />
+    <EntitySet Name="TT_TaiKhoan" EntityType="QLKS_DAModel.TT_TaiKhoan" />
+    <EntitySet Name="TT_ThuePhong" EntityType="QLKS_DAModel.TT_ThuePhong" />
+    <AssociationSet Name="FK_TT_SDDichVu_DM_DichVu" Association="QLKS_DAModel.FK_TT_SDDichVu_DM_DichVu">
+      <End Role="DM_DichVu" EntitySet="DM_DichVu" />
+      <End Role="TT_SDDichVu" EntitySet="TT_SDDichVu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DM_HoaDon_TT_ThuePhong" Association="QLKS_DAModel.FK_DM_HoaDon_TT_ThuePhong">
+      <End Role="TT_ThuePhong" EntitySet="TT_ThuePhong" />
+      <End Role="DM_HoaDon" EntitySet="DM_HoaDon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DM_KhachHang_DM_PhanLoaiKH" Association="QLKS_DAModel.FK_DM_KhachHang_DM_PhanLoaiKH">
+      <End Role="DM_PhanLoaiKH" EntitySet="DM_PhanLoaiKH" />
+      <End Role="DM_KhachHang" EntitySet="DM_KhachHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TT_ThuePhong_DM_KhachHang" Association="QLKS_DAModel.FK_TT_ThuePhong_DM_KhachHang">
+      <End Role="DM_KhachHang" EntitySet="DM_KhachHang" />
+      <End Role="TT_ThuePhong" EntitySet="TT_ThuePhong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DM_Phong_DM_LoaiPhong" Association="QLKS_DAModel.FK_DM_Phong_DM_LoaiPhong">
+      <End Role="DM_LoaiPhong" EntitySet="DM_LoaiPhong" />
+      <End Role="DM_Phong" EntitySet="DM_Phong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DM_Phong_DM_Tang" Association="QLKS_DAModel.FK_DM_Phong_DM_Tang">
+      <End Role="DM_Tang" EntitySet="DM_Tang" />
+      <End Role="DM_Phong" EntitySet="DM_Phong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TT_ThuePhong_DM_Phong" Association="QLKS_DAModel.FK_TT_ThuePhong_DM_Phong">
+      <End Role="DM_Phong" EntitySet="DM_Phong" />
+      <End Role="TT_ThuePhong" EntitySet="TT_ThuePhong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TT_TaiKhoan_DM_TaiKhoan" Association="QLKS_DAModel.FK_TT_TaiKhoan_DM_TaiKhoan">
+      <End Role="DM_TaiKhoan" EntitySet="DM_TaiKhoan" />
+      <End Role="TT_TaiKhoan" EntitySet="TT_TaiKhoan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TT_DoiPhong_TT_ThuePhong" Association="QLKS_DAModel.FK_TT_DoiPhong_TT_ThuePhong">
+      <End Role="TT_ThuePhong" EntitySet="TT_ThuePhong" />
+      <End Role="TT_DoiPhong" EntitySet="TT_DoiPhong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TT_SDDichVu_TT_ThuePhong" Association="QLKS_DAModel.FK_TT_SDDichVu_TT_ThuePhong">
+      <End Role="TT_ThuePhong" EntitySet="TT_ThuePhong" />
+      <End Role="TT_SDDichVu" EntitySet="TT_SDDichVu" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(QLKS_DAModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(QLKS_DAModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <EntityType Name="DM_DichVu">
+    <Key>
+      <PropertyRef Name="MaDV" />
+    </Key>
+    <Property Name="MaDV" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="TenDV" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DonGiaVN" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DonGiaNN" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="TT_SDDichVu" Relationship="QLKS_DAModel.FK_TT_SDDichVu_DM_DichVu" FromRole="DM_DichVu" ToRole="TT_SDDichVu" />
+  </EntityType>
+  <EntityType Name="DM_HoaDon">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="MaThue" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="SoTien" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="NgayTT" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="TT_ThuePhong" Relationship="QLKS_DAModel.FK_DM_HoaDon_TT_ThuePhong" FromRole="DM_HoaDon" ToRole="TT_ThuePhong" />
+  </EntityType>
+  <EntityType Name="DM_KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="HoTenKH" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="SDT" Type="String" MaxLength="15" Unicode="false" FixedLength="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="CMND" Type="String" MaxLength="15" Unicode="false" FixedLength="true" />
+    <Property Name="MaPhanLoai" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="QuocTich" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="DM_PhanLoaiKH" Relationship="QLKS_DAModel.FK_DM_KhachHang_DM_PhanLoaiKH" FromRole="DM_KhachHang" ToRole="DM_PhanLoaiKH" />
+    <NavigationProperty Name="TT_ThuePhong" Relationship="QLKS_DAModel.FK_TT_ThuePhong_DM_KhachHang" FromRole="DM_KhachHang" ToRole="TT_ThuePhong" />
+  </EntityType>
+  <EntityType Name="DM_LoaiPhong">
+    <Key>
+      <PropertyRef Name="MaLoaiP" />
+    </Key>
+    <Property Name="MaLoaiP" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="TenLoaiP" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="DM_Phong" Relationship="QLKS_DAModel.FK_DM_Phong_DM_LoaiPhong" FromRole="DM_LoaiPhong" ToRole="DM_Phong" />
+  </EntityType>
+  <EntityType Name="DM_PhanLoaiKH">
+    <Key>
+      <PropertyRef Name="MaPhanLoai" />
+    </Key>
+    <Property Name="MaPhanLoai" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="TenPhanLoai" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="DM_KhachHang" Relationship="QLKS_DAModel.FK_DM_KhachHang_DM_PhanLoaiKH" FromRole="DM_PhanLoaiKH" ToRole="DM_KhachHang" />
+  </EntityType>
+  <EntityType Name="DM_Phong">
+    <Key>
+      <PropertyRef Name="MaP" />
+    </Key>
+    <Property Name="MaP" Type="Int32" Nullable="false" />
+    <Property Name="TenP" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MaLoaiP" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="GiaVN" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="GiaNN" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MaTang" Type="Int32" />
+    <NavigationProperty Name="DM_LoaiPhong" Relationship="QLKS_DAModel.FK_DM_Phong_DM_LoaiPhong" FromRole="DM_Phong" ToRole="DM_LoaiPhong" />
+    <NavigationProperty Name="DM_Tang" Relationship="QLKS_DAModel.FK_DM_Phong_DM_Tang" FromRole="DM_Phong" ToRole="DM_Tang" />
+    <NavigationProperty Name="TT_ThuePhong" Relationship="QLKS_DAModel.FK_TT_ThuePhong_DM_Phong" FromRole="DM_Phong" ToRole="TT_ThuePhong" />
+  </EntityType>
+  <EntityType Name="DM_TaiKhoan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="PW" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="Quyen" Type="Int32" />
+    <NavigationProperty Name="TT_TaiKhoan" Relationship="QLKS_DAModel.FK_TT_TaiKhoan_DM_TaiKhoan" FromRole="DM_TaiKhoan" ToRole="TT_TaiKhoan" />
+  </EntityType>
+  <EntityType Name="DM_Tang">
+    <Key>
+      <PropertyRef Name="MaTang" />
+    </Key>
+    <Property Name="MaTang" Type="Int32" Nullable="false" />
+    <Property Name="TenTang" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="DM_Phong" Relationship="QLKS_DAModel.FK_DM_Phong_DM_Tang" FromRole="DM_Tang" ToRole="DM_Phong" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TT_DoiPhong">
+    <Key>
+      <PropertyRef Name="MaDoiP" />
+    </Key>
+    <Property Name="MaDoiP" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="MaThue" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="MaPCu" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="MaPMoi" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="NgayDenPCu" Type="DateTime" Precision="0" />
+    <Property Name="NgayDoiP" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="TT_ThuePhong" Relationship="QLKS_DAModel.FK_TT_DoiPhong_TT_ThuePhong" FromRole="TT_DoiPhong" ToRole="TT_ThuePhong" />
+  </EntityType>
+  <EntityType Name="TT_SDDichVu">
+    <Key>
+      <PropertyRef Name="MaSDDV" />
+    </Key>
+    <Property Name="MaSDDV" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="MaThue" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="MaDV" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="ThanhTienVN" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ThanhTienNN" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="DM_DichVu" Relationship="QLKS_DAModel.FK_TT_SDDichVu_DM_DichVu" FromRole="TT_SDDichVu" ToRole="DM_DichVu" />
+    <NavigationProperty Name="TT_ThuePhong" Relationship="QLKS_DAModel.FK_TT_SDDichVu_TT_ThuePhong" FromRole="TT_SDDichVu" ToRole="TT_ThuePhong" />
+  </EntityType>
+  <EntityType Name="TT_TaiKhoan">
+    <Key>
+      <PropertyRef Name="MaNV" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="MaNV" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="HoTen" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="DienThoai" Type="String" MaxLength="20" Unicode="false" FixedLength="true" />
+    <Property Name="Email" Type="String" MaxLength="100" Unicode="false" FixedLength="true" />
+    <NavigationProperty Name="DM_TaiKhoan" Relationship="QLKS_DAModel.FK_TT_TaiKhoan_DM_TaiKhoan" FromRole="TT_TaiKhoan" ToRole="DM_TaiKhoan" />
+  </EntityType>
+  <EntityType Name="TT_ThuePhong">
+    <Key>
+      <PropertyRef Name="MaThue" />
+    </Key>
+    <Property Name="MaThue" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="MaKH" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+    <Property Name="MaP" Type="Int32" />
+    <Property Name="NgayDat" Type="DateTime" Precision="0" />
+    <Property Name="NgayDen" Type="DateTime" Precision="0" />
+    <Property Name="NgayTraDuKien" Type="DateTime" Precision="0" />
+    <Property Name="NgayTraThucTe" Type="DateTime" Precision="0" />
+    <Property Name="TienCoc" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="DM_HoaDon" Relationship="QLKS_DAModel.FK_DM_HoaDon_TT_ThuePhong" FromRole="TT_ThuePhong" ToRole="DM_HoaDon" />
+    <NavigationProperty Name="DM_KhachHang" Relationship="QLKS_DAModel.FK_TT_ThuePhong_DM_KhachHang" FromRole="TT_ThuePhong" ToRole="DM_KhachHang" />
+    <NavigationProperty Name="DM_Phong" Relationship="QLKS_DAModel.FK_TT_ThuePhong_DM_Phong" FromRole="TT_ThuePhong" ToRole="DM_Phong" />
+    <NavigationProperty Name="TT_DoiPhong" Relationship="QLKS_DAModel.FK_TT_DoiPhong_TT_ThuePhong" FromRole="TT_ThuePhong" ToRole="TT_DoiPhong" />
+    <NavigationProperty Name="TT_SDDichVu" Relationship="QLKS_DAModel.FK_TT_SDDichVu_TT_ThuePhong" FromRole="TT_ThuePhong" ToRole="TT_SDDichVu" />
+  </EntityType>
+  <Association Name="FK_TT_SDDichVu_DM_DichVu">
+    <End Role="DM_DichVu" Type="QLKS_DAModel.DM_DichVu" Multiplicity="0..1" />
+    <End Role="TT_SDDichVu" Type="QLKS_DAModel.TT_SDDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_DichVu">
+        <PropertyRef Name="MaDV" />
+      </Principal>
+      <Dependent Role="TT_SDDichVu">
+        <PropertyRef Name="MaDV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DM_HoaDon_TT_ThuePhong">
+    <End Role="TT_ThuePhong" Type="QLKS_DAModel.TT_ThuePhong" Multiplicity="0..1" />
+    <End Role="DM_HoaDon" Type="QLKS_DAModel.DM_HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TT_ThuePhong">
+        <PropertyRef Name="MaThue" />
+      </Principal>
+      <Dependent Role="DM_HoaDon">
+        <PropertyRef Name="MaThue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DM_KhachHang_DM_PhanLoaiKH">
+    <End Role="DM_PhanLoaiKH" Type="QLKS_DAModel.DM_PhanLoaiKH" Multiplicity="0..1" />
+    <End Role="DM_KhachHang" Type="QLKS_DAModel.DM_KhachHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_PhanLoaiKH">
+        <PropertyRef Name="MaPhanLoai" />
+      </Principal>
+      <Dependent Role="DM_KhachHang">
+        <PropertyRef Name="MaPhanLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TT_ThuePhong_DM_KhachHang">
+    <End Role="DM_KhachHang" Type="QLKS_DAModel.DM_KhachHang" Multiplicity="0..1" />
+    <End Role="TT_ThuePhong" Type="QLKS_DAModel.TT_ThuePhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="TT_ThuePhong">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DM_Phong_DM_LoaiPhong">
+    <End Role="DM_LoaiPhong" Type="QLKS_DAModel.DM_LoaiPhong" Multiplicity="0..1" />
+    <End Role="DM_Phong" Type="QLKS_DAModel.DM_Phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_LoaiPhong">
+        <PropertyRef Name="MaLoaiP" />
+      </Principal>
+      <Dependent Role="DM_Phong">
+        <PropertyRef Name="MaLoaiP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DM_Phong_DM_Tang">
+    <End Role="DM_Tang" Type="QLKS_DAModel.DM_Tang" Multiplicity="0..1" />
+    <End Role="DM_Phong" Type="QLKS_DAModel.DM_Phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_Tang">
+        <PropertyRef Name="MaTang" />
+      </Principal>
+      <Dependent Role="DM_Phong">
+        <PropertyRef Name="MaTang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TT_ThuePhong_DM_Phong">
+    <End Role="DM_Phong" Type="QLKS_DAModel.DM_Phong" Multiplicity="0..1" />
+    <End Role="TT_ThuePhong" Type="QLKS_DAModel.TT_ThuePhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_Phong">
+        <PropertyRef Name="MaP" />
+      </Principal>
+      <Dependent Role="TT_ThuePhong">
+        <PropertyRef Name="MaP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TT_TaiKhoan_DM_TaiKhoan">
+    <End Role="DM_TaiKhoan" Type="QLKS_DAModel.DM_TaiKhoan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TT_TaiKhoan" Type="QLKS_DAModel.TT_TaiKhoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DM_TaiKhoan">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TT_TaiKhoan">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TT_DoiPhong_TT_ThuePhong">
+    <End Role="TT_ThuePhong" Type="QLKS_DAModel.TT_ThuePhong" Multiplicity="0..1" />
+    <End Role="TT_DoiPhong" Type="QLKS_DAModel.TT_DoiPhong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TT_ThuePhong">
+        <PropertyRef Name="MaThue" />
+      </Principal>
+      <Dependent Role="TT_DoiPhong">
+        <PropertyRef Name="MaThue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TT_SDDichVu_TT_ThuePhong">
+    <End Role="TT_ThuePhong" Type="QLKS_DAModel.TT_ThuePhong" Multiplicity="0..1" />
+    <End Role="TT_SDDichVu" Type="QLKS_DAModel.TT_SDDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TT_ThuePhong">
+        <PropertyRef Name="MaThue" />
+      </Principal>
+      <Dependent Role="TT_SDDichVu">
+        <PropertyRef Name="MaThue" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
